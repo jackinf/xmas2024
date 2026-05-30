@@ -1,50 +1,67 @@
-# React + TypeScript + Vite
+<div align="center">
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Xmas 2024
 
-Currently, two official plugins are available:
+### A React + TypeScript + Vite starter project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white)
+[![Repo](https://img.shields.io/badge/GitHub-jackinf%2Fxmas2024-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/jackinf/xmas2024)
 
-## Expanding the ESLint configuration
+</div>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Overview
 
-- Configure the top-level `parserOptions` property like this:
+Xmas 2024 is a front-end project bootstrapped with the React + TypeScript + Vite template. It currently contains the default scaffold (the Vite + React starter screen with hot module replacement), providing a clean baseline to build on top of. The run commands and configuration below are taken directly from the project files.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Tech Stack
+
+| Area       | Tools                                                     |
+| ---------- | --------------------------------------------------------- |
+| Language   | TypeScript (~5.6)                                         |
+| UI         | React 18.3, React DOM                                     |
+| Build tool | Vite 6                                                    |
+| Linting    | ESLint 9, typescript-eslint, React Hooks/Refresh plugins  |
+
+## Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (a recent LTS release recommended)
+- npm (bundled with Node.js)
+
+### Installation
+
+```bash
+git clone https://github.com/jackinf/xmas2024.git
+cd xmas2024
+npm install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Running
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Scripts defined in `package.json`:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+npm run dev      # start the Vite dev server with HMR
+npm run build    # type-check (tsc -b) and build for production
+npm run preview  # preview the production build locally
+npm run lint     # run ESLint over the project
+```
+
+## Project Structure
+
+```
+xmas2024/
+├── index.html          # App entry HTML
+├── public/             # Static assets served as-is
+├── src/
+│   ├── main.tsx        # React entry point
+│   ├── App.tsx         # Root component
+│   └── *.css           # Styles
+├── vite.config.ts      # Vite configuration
+├── eslint.config.js    # ESLint configuration
+└── tsconfig*.json      # TypeScript configuration
 ```
